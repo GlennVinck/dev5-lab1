@@ -15,7 +15,7 @@ const SpeechRecognitionEvent =
   window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
 
 // grammer -> these are all commands you can say, feel free to change
-const commands = ["start", "stop", "speel"];
+const commands = ["start", "stop", "speel","dans"];
 const grammar = `#JSGF V1.0; grammar commands; public <command> = ${commands.join(
   " | "
 )};`;
@@ -61,6 +61,12 @@ recognition.onresult = function (event) {
       console.log("zoek");
     }
   }
+
+  //danscommando
+  if (recognizedSpeech === "dans") {
+    showDanceGIF(); // Show the dance GIF
+    console.log("dans");
+  }
 };
 
 //the function that searches google if the user says "zoek"
@@ -88,6 +94,21 @@ const makeImage = async (prompt) => {
   });
   document.querySelector("#hf").src = URL.createObjectURL(result);
   // hideLoading();
+};
+
+
+// the function that handles the dans GIF
+  const showDanceGIF = () => {
+  const hfContainer = document.querySelector(".full");
+  const danceGIF = document.createElement("img");
+  danceGIF.src = "./dans-gif.gif"; // Replace with the actual GIF path
+  danceGIF.id = "dance-gif"; // Assign an ID to the GIF element (optional)
+  
+  // Clear any previous content inside the .full container
+  hfContainer.innerHTML = '';
+  
+  // Append the GIF element to the .full container
+  hfContainer.appendChild(danceGIF);
 };
 
 makeImage(

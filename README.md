@@ -8,3 +8,6 @@ Say "Speel" to play a song.
 
 ## 2 - Search the web
 Say "Zoek" followed by your search request.
+
+## 3 - Dancing on the ceiling
+Say "Dans" to dance the night away.
