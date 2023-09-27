@@ -52,6 +52,18 @@ recognition.onresult = function (event) {
     playAudio();
     console.log("speel");
   }
+
+  //zoekcommando
+  if (recognizedSpeech === "zoek") {
+    search();
+    console.log("speel");
+  }
+};
+
+//the function that searches google if the user says "zoek"
+const search = async () => {
+  const search = document.querySelector("#commando").innerHTML;
+  window.open("https://www.google.com/search?q=" + search);
 };
 
 //the function that makes music
