@@ -4,9 +4,7 @@ Hello user! This project aims to show you some fun examples to make use of speec
 Here are some suggestions you can try out:
 
 ## 1 - Play some music
+Say "Speel" to play a song.
 
-
-## 2 - Start a game
-
-
-## 3
+## 2 - Search the web
+Say "Zoek" followed by your search request.
