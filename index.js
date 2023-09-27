@@ -15,7 +15,7 @@ const SpeechRecognitionEvent =
   window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
 
 // grammer -> these are all commands you can say, feel free to change
-const commands = ["start", "stop"];
+const commands = ["start", "stop", "speel"];
 const grammar = `#JSGF V1.0; grammar commands; public <command> = ${commands.join(
   " | "
 )};`;
@@ -46,6 +46,19 @@ recognition.onresult = function (event) {
 
   // update DOM
   document.querySelector("#commando").innerHTML = recognizedSpeech;
+
+  //speelcommando
+  if (recognizedSpeech === "speel") {
+    playAudio();
+    console.log("speel");
+  }
+};
+
+//the function that makes music
+const playAudio = async () => {
+  const audio = new Audio("jay-z-ai.mp3");
+  audio.play();
+  //console.log(audio);
 };
 
 // the function that makes images
