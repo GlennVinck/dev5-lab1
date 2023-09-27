@@ -54,16 +54,19 @@ recognition.onresult = function (event) {
   }
 
   //zoekcommando
-  if (recognizedSpeech === "zoek") {
-    search();
-    console.log("speel");
+  if (recognizedSpeech.includes("zoek")) {
+    const query = recognizedSpeech.replace("zoek", "").trim(); // Remove "zoek" and trim any extra spaces
+    if (query.length > 0) {
+      search(query);
+      console.log("zoek");
+    }
   }
 };
 
 //the function that searches google if the user says "zoek"
-const search = async () => {
-  const search = document.querySelector("#commando").innerHTML;
-  window.open("https://www.google.com/search?q=" + search);
+const search = async (query) => {
+  const sanitizedQuery = encodeURIComponent(query); // Ensure the query is properly encoded for a URL
+  window.open("https://www.google.com/search?q=" + sanitizedQuery);
 };
 
 //the function that makes music
